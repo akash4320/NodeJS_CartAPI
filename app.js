@@ -1,14 +1,19 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const dotenv = require('dotenv');
+
 const cartRouter = require("./routes/CartRoutes");
+
+// configraration with env. 
+dotenv.config();
 
 //middleware
 app.use(express.json());
 app.use("/api/cart", cartRouter);
 
 // MongoDB Connect
-mongoose.connect("mongodb://localhost:27017/Cart", {
+mongoose.connect(`${process.env.MONGODB_URI}Cart`, {
    useNewUrlParser: true,
    useUnifiedTopology: true
 }).then((res)=> console.log('MongoDB Connected'))
