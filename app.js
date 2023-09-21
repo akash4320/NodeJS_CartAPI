@@ -5,7 +5,7 @@ const cartRouter = require("./routes/CartRoutes");
 
 //middleware
 app.use(express.json());
-app.use("/api/cartItems", cartRouter);
+app.use("/api/cart", cartRouter);
 
 // MongoDB Connect
 mongoose.connect("mongodb://localhost:27017/Cart", {
