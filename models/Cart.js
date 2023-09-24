@@ -11,5 +11,8 @@ const cartSchema = new Schema({
     default: Date.now,
   },
 });
+
+// Specifying the DB name in Schema to handle multiple DB
+const cartDB = mongoose.connection.useDb('Cart');
  
-module.exports = mongoose.model("CartModel", cartSchema,"CartCollection");
+module.exports = cartDB.model("CartModel", cartSchema,"CartCollection");
