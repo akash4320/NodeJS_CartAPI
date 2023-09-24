@@ -13,7 +13,7 @@ app.use(express.json());
 app.use("/api/cart", cartRouter);
 
 // MongoDB Connect
-mongoose.connect(`${process.env.MONGODB_URI}Cart`, {
+mongoose.connect(`${process.env.MONGODB_URI}`, {
    useNewUrlParser: true,
    useUnifiedTopology: true
 }).then((res)=> console.log('MongoDB Connected'))
