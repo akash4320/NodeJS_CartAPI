@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
+const cors = require("cors")
 
 const cartRouter = require("./routes/CartRoutes");
 
@@ -10,6 +11,7 @@ dotenv.config();
 
 //middleware
 app.use(express.json());
+app.use(cors())
 app.use("/api/cart", cartRouter);
 
 // MongoDB Connect
